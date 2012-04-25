@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/dark/.vim/bundle'
+let g:netrw_dirhist_2='/home/dark/.vim'
+let g:netrw_dirhist_3='/home/dark/.vim/bundle/snipmate.vim'
+let g:netrw_dirhist_4='/etc/apt/sources.list.d'
+let g:netrw_dirhist_5='/home/dark/.vim/doc'
+let g:netrw_dirhist_6='/home/dark/.vim'
+let g:netrw_dirhist_7='/home/dark'
+let g:netrw_dirhist_8='/home/dark/work'
+let g:netrw_dirhist_9='/home/dark/work/listwish'

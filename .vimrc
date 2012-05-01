@@ -2,8 +2,6 @@ set nocompatible
 set backspace=indent,eol,start 
 " Set the status line the way i like it
 set stl=%f\ %m\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
-"always show status
-set laststatus=2
 
 "disable all blinking
 set guicursor+=a:blinkon0
@@ -22,11 +20,12 @@ set guioptions-=m
 set guioptions +=lrbLR
 set guioptions -=lrbLR
 set langmenu=en_US.UTF-8
-set ic
+set ignorecase
 " no confirmation on unsaved changes with buffer, it ecomes hidden
 set hidden
 
 call pathogen#infect()
+call yankstack#setup()
 syntax on
 filetype plugin indent on
 
@@ -48,6 +47,7 @@ map <leader>c :cwin
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
+set incsearch
 set hlsearch
 highlight lCursor guifg=NONE guibg=Green
 "duplicate line netbeans-like
@@ -122,7 +122,7 @@ map <C-w>u :vsplit # <cr>
 map <A-t> /\|.\{-}\|<cr>
 
 "Список недавно использованных файлов (MRU)
-map <leader>r :MRU
+map <leader>m :MRU
 nnoremap <A-j> :RE
 "backup
 set backupdir=~/.vim/tmp,.
@@ -138,10 +138,10 @@ endfunc
 "CTRL-L по умолчанию очищает и перерисовывает экран
 nnoremap <A-l> :call g:ToggleNuMode()<cr> 
 set diffopt+=iwhite
-set wildmode=longest:full,list:full
+set wildmode=list:full
 "GUNDO setup
 nnoremap <F5> :GundoToggle<CR>
-"toggle highlight
+"toggle hlsearch highlight
 map  <F12> :set hls!<CR>
 imap <F12> <ESC>:set hls!<CR>a
 vmap <F12> <ESC>:set hls!<CR>gv
@@ -149,3 +149,42 @@ vmap <F12> <ESC>:set hls!<CR>gv
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
+"смена цветовых схем sienna и railscasts 3
+map <leader>cr :colors railscasts3
+map <leader>cs :colors sienna
+"normal key maps
+map Y y$
+"let g:EasyMotion_leader_key = '<Leader>'
+"easy motion find word to alt-w
+map <A-w> ,,w
+map <Space> :
+nmap  <Plug>yankstack_substitute_older_paste
+nmap <c-s>p <Plug>yankstack_substitute_older_paste
+"resize windows with +- keys
+"arrow keys to resize windows
+if bufwinnr(1)
+  map + <C-W>+
+  map - <C-W>-
+  map <left> <C-w><
+  map <right> <C-w>>
+endif
+"from steve losh's article
+set scrolloff=3
+set showcmd
+"set visualbell
+"set cursorline
+"substitution applies on all lines by default
+set gdefault
+set smartcase
+set showmatch
+"set colorcolumn=85
+map <leader><tab> <c-w>v<c-w>l :Scratch<cr>
+map <leader><tab>q :Scratch<cr>
+map <f10> yy : <c-r>"
+"showmarks settings
+let g:showmarks_enable=0
+"rainbowparenthesis
+map <leader>r :RainbowParenthesesToggle<cr>
+imap jj jQuery
+xmap s S
+map va" va"olo

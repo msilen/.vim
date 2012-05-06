@@ -1,7 +1,9 @@
 set nocompatible
 set backspace=indent,eol,start 
 " Set the status line the way i like it
-set stl=%f\ %m\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
+set laststatus=2
+"set statusline=%f\ %m\ Pos[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
+set statusline=%f\ %m\ Pos[%p%%]\ Col:%v\ Buf:#%n 
 
 "disable all blinking
 set guicursor+=a:blinkon0
@@ -69,7 +71,10 @@ inoremap <A-l> <Right>
 "paste on new line with ,p
 nmap ,p o<ESC>p
 "save file with CTRL-S
-map <C-S> :w <CR>
+noremap <C-S> :w <CR>
+"scroll page half screen up with CTRL-E
+noremap <C-E> <C-U>
+
 "expand tab to spaces
 set tabstop=2
 set shiftwidth=2
@@ -83,6 +88,8 @@ map <leader>n :NERDTree
 map <leader>nf :NERDTreeFind 
 map <leader>nt :NERDTreeToggle 
 map <leader>t :FufCoverageFile 
+map <leader>fr :FufBuffer 
+map <leader>fq :FufQuickfix 
 
 "from vimwiki status line coloring-------
 function! InsertStatuslineColor(mode)
@@ -103,7 +110,7 @@ au InsertLeave * hi statusline guibg=darkgreen
 "выбор линий находящихся на одном уровне отступа (для HAML,coffeescript,etc.)
 "TODO:сделать так чтобы выбирались линии после следующей(чтобы всю функцию
 "захватывать)
-map <leader>i :call SelectIndent() <CR>
+noremap <leader>ss :call SelectIndent() <CR>
 function! SelectIndent ()
   let temp_var=indent(line("."))
   while indent(line(".")-1) >= temp_var
@@ -156,10 +163,11 @@ map <leader>cs :colors sienna
 map Y y$
 "let g:EasyMotion_leader_key = '<Leader>'
 "easy motion find word to alt-w
-map <A-w> ,,w
-map <Space> :
+"map <A-w> ,,w
+map <Space> ,,w
+"map <Space> :
 nmap  <Plug>yankstack_substitute_older_paste
-nmap <c-s>p <Plug>yankstack_substitute_older_paste
+nmap <C-S>p <Plug>yankstack_substitute_older_paste
 "resize windows with +- keys
 "arrow keys to resize windows
 if bufwinnr(1)
@@ -178,9 +186,9 @@ set gdefault
 set smartcase
 set showmatch
 "set colorcolumn=85
-map <leader><tab> <c-w>v<c-w>l :Scratch<cr>
-map <leader><tab>q :Scratch<cr>
-map <f10> yy : <c-r>"
+noremap <leader><tab> <c-w>v<c-w>l :Scratch<cr>
+noremap <leader><tab>q :Scratch<cr>
+map <f10> 0y$ : <c-r>"
 "showmarks settings
 let g:showmarks_enable=0
 "rainbowparenthesis
@@ -188,3 +196,15 @@ map <leader>r :RainbowParenthesesToggle<cr>
 imap jj jQuery
 xmap s S
 map va" va"olo
+set list
+set listchars=tab:▸\
+nnoremap / /\v
+vnoremap / /\v
+set cursorline
+set wrap linebreak nolist
+"delimitMate settings
+let delimitMate_expand_cr = 1
+"Zen-Coding vim custom settings
+let g:user_zen_leader_key = '<a-e>'
+let g:session_autoload='yes'
+let g:session_autosave='yes'

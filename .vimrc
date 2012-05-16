@@ -39,12 +39,12 @@ set undoreload=10000        " number of lines to save for undo
 
 let mapleader = ","
 
-map <leader>gv :e ~/.vimrc
-map <leader>gs :source %
+noremap <leader>gv :e ~/.vimrc
+noremap <leader>gs :source %
 
 
 "quickfix hotkey
-map <leader>c :cwin 
+noremap <leader>c :cwin 
 "from habr
 set keymap=russian-jcukenwin
 set iminsert=0
@@ -53,10 +53,10 @@ set incsearch
 set hlsearch
 highlight lCursor guifg=NONE guibg=Green
 "duplicate line netbeans-like
-map <C-S-j> yyp
+noremap <C-S-j> yyp
 
 "switch language with ctrl-z
-imap  
+inoremap  
 "move cursor in command mode(ex-commands)
 cnoremap <A-h> <Left>
 cnoremap <A-j> <Down>
@@ -69,7 +69,7 @@ inoremap <A-j> <Down>
 inoremap <A-k> <Up>
 inoremap <A-l> <Right>
 "paste on new line with ,p
-nmap ,p o<ESC>p
+noremap ,p o<ESC>p
 "save file with CTRL-S
 noremap <C-S> :w <CR>
 "scroll page half screen up with CTRL-E
@@ -84,12 +84,13 @@ set complete=.,w,b,t
 "NERDTree map to key
 "set autochdir
 let NERDTreeChDirMode=2
-map <leader>n :NERDTree 
-map <leader>nf :NERDTreeFind 
-map <leader>nt :NERDTreeToggle 
-map <leader>t :FufCoverageFile 
-map <leader>fr :FufBuffer 
-map <leader>fq :FufQuickfix 
+noremap <leader>n :NERDTree 
+noremap <leader>nf :NERDTreeFind 
+noremap <leader>nt :NERDTreeToggle 
+"FuzzyFinder mappings
+"noremap <leader>t :FufCoverageFile 
+"noremap <leader>fr :FufBuffer 
+"noremap <leader>fq :FufQuickfix 
 
 "from vimwiki status line coloring-------
 function! InsertStatuslineColor(mode)
@@ -123,13 +124,13 @@ function! SelectIndent ()
 endfun
 
 "разбить окно вертикально и открыть альтернативный буфер
-map <C-w>u :vsplit # <cr>
+noremap <C-w>u :vsplit # <cr>
 
 "поиск в хелп файле следующего тега
-map <A-t> /\|.\{-}\|<cr>
+noremap <A-t> /\|.\{-}\|<cr>
 
 "Список недавно использованных файлов (MRU)
-map <leader>m :MRU
+noremap <leader>m :MRU
 nnoremap <A-j> :RE
 "backup
 set backupdir=~/.vim/tmp,.
@@ -149,7 +150,7 @@ set wildmode=list:full
 "GUNDO setup
 nnoremap <F5> :GundoToggle<CR>
 "toggle hlsearch highlight
-map  <F12> :set hls!<CR>
+noremap  <F12> :set hls!<CR>
 imap <F12> <ESC>:set hls!<CR>a
 vmap <F12> <ESC>:set hls!<CR>gv
 "paste without indent
@@ -157,17 +158,17 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 "смена цветовых схем sienna и railscasts 3
-map <leader>cr :colors railscasts3
+noremap <leader>cr :colors railscasts3
 map <leader>cs :colors sienna
 "normal key maps
-map Y y$
+noremap Y y$
 "let g:EasyMotion_leader_key = '<Leader>'
 "easy motion find word to alt-w
 "map <A-w> ,,w
 map <Space> ,,w
 "map <Space> :
-nmap  <Plug>yankstack_substitute_older_paste
-nmap <C-S>p <Plug>yankstack_substitute_older_paste
+noremap  <Plug>yankstack_substitute_older_paste
+noremap <C-S>p <Plug>yankstack_substitute_older_paste
 "resize windows with +- keys
 "arrow keys to resize windows
 if bufwinnr(1)
@@ -188,23 +189,24 @@ set showmatch
 "set colorcolumn=85
 noremap <leader><tab> <c-w>v<c-w>l :Scratch<cr>
 noremap <leader><tab>q :Scratch<cr>
-map <f10> 0y$ : <c-r>"
+noremap <f10> 0y$ : <c-r>"
 "showmarks settings
 let g:showmarks_enable=0
 "rainbowparenthesis
-map <leader>r :RainbowParenthesesToggle<cr>
-imap jj jQuery
+noremap <leader>r :RainbowParenthesesToggle<cr>
+inoremap jj jQuery
 xmap s S
-map va" va"olo
+noremap va" va"olo
 set list
 set listchars=tab:▸\
 nnoremap / /\v
 vnoremap / /\v
 set cursorline
-set wrap linebreak nolist
+set wrap linebreak
 "delimitMate settings
 let delimitMate_expand_cr = 1
 "Zen-Coding vim custom settings
 let g:user_zen_leader_key = '<a-e>'
 let g:session_autoload='yes'
 let g:session_autosave='yes'
+let g:CommandTMatchWindowAtTop=1

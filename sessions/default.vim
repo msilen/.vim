@@ -1,5 +1,5 @@
 " ~/.vim/sessions/default.vim: Vim session script.
-" Created by session.vim 1.5 on 06 Май 2012 at 03:36:12.
+" Created by session.vim 1.5 on 16 Май 2012 at 17:12:21.
 " Open this file in Vim and run :source % to restore your session.
 
 set guioptions=aegit
@@ -18,29 +18,29 @@ if &cp | set nocp | endif
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/work/bbcopy/2304/listwish
+cd ~/Documents/work/scrubzilla
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +107 ~/.vimrc
-badd +23 app/assets/javascripts/application.js
-badd +121 app/assets/javascripts/temp.js.coffee
-badd +31 app/views/delivery_addresses/_fields.html.erb
-badd +10 app/views/wishes/orders/destroy.js.erb
-badd +144 app/views/orders/show.html.erb
-badd +4 __Scratch__
-badd +10 app/views/wishes/orders/_wish.html.erb
-badd +9 app/assets/stylesheets/event-addmore.css
+badd +0 ~/.vimrc
 silent! argdel *
 set lines=53 columns=170
+edit ~/.vimrc
 set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
 set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 85) / 170)
+exe 'vert 2resize ' . ((&columns * 138 + 85) / 170)
 argglobal
 enew
+" file NERD_tree_1
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -49,7 +49,26 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-lcd ~/work/bbcopy/2304/listwish
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 1 - ((0 * winheight(0) + 25) / 51)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 85) / 170)
+exe 'vert 2resize ' . ((&columns * 138 + 85) / 170)
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
@@ -66,8 +85,9 @@ unlet SessionLoad
 tabnext 1
 1wincmd w
 let s:bufnr = bufnr("%")
-cwindow
+NERDTree ~/Documents/work/scrubzilla
 execute "bwipeout" s:bufnr
+1resize 51|vert 1resize 31|2resize 51|vert 2resize 138|
 tabnext 1
 1wincmd w
 

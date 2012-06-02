@@ -92,6 +92,9 @@ noremap <leader>nt :NERDTreeToggle
 "noremap <leader>fr :FufBuffer 
 "noremap <leader>fq :FufQuickfix 
 
+"Command-T mappings
+nnoremap <silent> <Leader>fr :CommandTBuffer<CR>
+
 "from vimwiki status line coloring-------
 function! InsertStatuslineColor(mode)
   if a:mode == 'i'

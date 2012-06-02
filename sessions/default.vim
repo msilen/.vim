@@ -1,5 +1,5 @@
 " ~/.vim/sessions/default.vim: Vim session script.
-" Created by session.vim 1.5 on 16 Май 2012 at 17:12:21.
+" Created by session.vim 1.5 on 16 Май 2012 at 18:24:13.
 " Open this file in Vim and run :source % to restore your session.
 
 set guioptions=aegit
@@ -23,10 +23,11 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 ~/.vimrc
+badd +1 ~/.vimrc
+badd +0 app/assets/javascripts/pages.js.coffee
 silent! argdel *
 set lines=53 columns=170
-edit ~/.vimrc
+edit app/assets/javascripts/pages.js.coffee
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -60,13 +61,14 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 25) / 51)
+let s:l = 21 - ((20 * winheight(0) + 25) / 51)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+21
 normal! 0
 wincmd w
+2wincmd w
 exe 'vert 1resize ' . ((&columns * 31 + 85) / 170)
 exe 'vert 2resize ' . ((&columns * 138 + 85) / 170)
 tabnext 1
@@ -89,6 +91,6 @@ NERDTree ~/Documents/work/scrubzilla
 execute "bwipeout" s:bufnr
 1resize 51|vert 1resize 31|2resize 51|vert 2resize 138|
 tabnext 1
-1wincmd w
+2wincmd w
 
 " vim: ft=vim ro nowrap smc=128

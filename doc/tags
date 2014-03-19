@@ -26,6 +26,7 @@
 :NERDTreeFromBookmark	NERD_tree.txt	/*:NERDTreeFromBookmark*
 :NERDTreeMirror	NERD_tree.txt	/*:NERDTreeMirror*
 :NERDTreeToggle	NERD_tree.txt	/*:NERDTreeToggle*
+FinishRecovery	recoverPlugin.txt	/*FinishRecovery*
 NERDTree	NERD_tree.txt	/*NERDTree*
 NERDTree-?	NERD_tree.txt	/*NERDTree-?*
 NERDTree-A	NERD_tree.txt	/*NERDTree-A*
@@ -85,7 +86,17 @@ NERDTreeOptionSummary	NERD_tree.txt	/*NERDTreeOptionSummary*
 NERDTreeOptions	NERD_tree.txt	/*NERDTreeOptions*
 NERDTreeRender()	NERD_tree.txt	/*NERDTreeRender()*
 NERD_tree.txt	NERD_tree.txt	/*NERD_tree.txt*
+RecovePlugin-config	recoverPlugin.txt	/*RecovePlugin-config*
+RecoverPlugin	recoverPlugin.txt	/*RecoverPlugin*
+RecoverPlugin-manual	recoverPlugin.txt	/*RecoverPlugin-manual*
+RecoverPlugin-misc	recoverPlugin.txt	/*RecoverPlugin-misc*
+RecoverPluginFinish	recoverPlugin.txt	/*RecoverPluginFinish*
+RecoverPluginHelp	recoverPlugin.txt	/*RecoverPluginHelp*
 ZoomWin.txt	ZoomWin.txt	/*ZoomWin.txt*
+recover-feedback	recoverPlugin.txt	/*recover-feedback*
+recover-history	recoverPlugin.txt	/*recover-history*
+recover-manual	recoverPlugin.txt	/*recover-manual*
+recover.vim	recoverPlugin.txt	/*recover.vim*
 zoomwin	ZoomWin.txt	/*zoomwin*
 zoomwin-copyright	ZoomWin.txt	/*zoomwin-copyright*
 zoomwin-history	ZoomWin.txt	/*zoomwin-history*
